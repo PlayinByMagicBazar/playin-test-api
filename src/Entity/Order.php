@@ -3,12 +3,22 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\OrderValidatorController;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: 't_panier')]
-#[ApiResource]
+#[ApiResource(
+    itemOperations: [
+        "get",
+        "validation" => [
+            "method" => "GET",
+            "path"=>"orders/{id}/validation",
+            "controller" => OrderValidatorController::class
+        ]
+    ]
+)]
 class Order
 {
     #[ORM\Id]
