@@ -66,7 +66,7 @@ final class VersionInit extends AbstractMigration
              */
             id_detail int default null,
             /* 
-             ID de la table stock_to_product si vendeur = N, de la table t_id_depot_id_produit si vendeur = O, et null si vendeur = V
+             ID de la table stock_to_product si vendeur = O, de la table t_id_depot_id_produit si vendeur = N, et null si vendeur = V
              */
             id_detail_stock int default null,
             quantite int not null default 1
